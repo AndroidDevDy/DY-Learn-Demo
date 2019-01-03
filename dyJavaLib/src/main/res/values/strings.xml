@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Library</string>
+    <string name="photo_pic_fail">选择图片失败</string>
+    <string name="photo_take">拍照</string>
+    <string name="photo_pic">从相册选择</string>
+    <string name="photo_faild">上传头像失败</string>
+    <string name="photo_success">上传头像成功</string>
+    <string name="cancel">取消</string>
+    <string name="back">返回</string>
+    <string name="exit_tip">再次点击退出应用</string>
+    <string name="title_activity_coordinator">CoordinatorActivity</string>
+    <string name="action_settings">Settings</string>
+</resources>

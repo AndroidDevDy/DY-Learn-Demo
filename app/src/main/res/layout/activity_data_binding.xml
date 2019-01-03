@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.daiy.learn.R" />
+
+        <variable
+            name="info"
+            type="com.daiy.learn.databinding.DataInfo" />
+
+        <variable
+            name="other"
+            type="com.daiy.learn.databinding.DataTestInfo" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{info::onClick}"
+            android:text="@{info.name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{v->info.onClick(v)}"
+            android:text="@{info.test ?? info.title}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{info::onClick}"
+            android:text="@{other.name}" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:itemBinding="@{info.itemBind}"
+            app:itemDropDownLayout="@{R.layout.item_layout}"
+            app:items="@{info.list}" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="12dp"
+            app:itemBinding="@{info.itemBinding}"
+            app:items="@{info.list}" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            app:itemBinding="@{info.itemBind}"
+            app:items="@{info.list}"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+    </LinearLayout>
+</layout>

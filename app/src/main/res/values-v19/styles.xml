@@ -1,0 +1,9 @@
+<resources>
+    <!--沉浸式状态栏-->
+    <style name="AppTheme.TranslucentStatus" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowFullscreen">true</item>-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+</resources>
