@@ -648,21 +648,21 @@ public class RxJavaExample1 {
     }
 
     /**
-     * distinctUntilChanged的用法
-     * 过滤掉相邻的重复项
+     * elementAt的用法
+     * 只发出指定位置的项
      */
     public void test32() {
         LogTools.loge("===test31===");
         Observable.just(1, 2, 2, 2, 3, 3, 5, 9)
-                .elementAt(6)
+                .elementAt(6, -1)
                 .doOnSuccess(o -> {
                     LogTools.loge("test31======" + o);
                 }).subscribe();
     }
 
     /**
-     * distinctUntilChanged的用法
-     * 过滤掉相邻的重复项
+     * filter的用法
+     * 过滤掉不符合条件的项
      */
     public void test33() {
         LogTools.loge("===test33===");
@@ -671,5 +671,104 @@ public class RxJavaExample1 {
                 .doOnNext(o -> {
                     LogTools.loge("test33======" + o);
                 }).subscribe();
+    }
+
+    /**
+     * filter的用法
+     * 只取第一个项项
+     */
+    public void test34() {
+        LogTools.loge("===test34===");
+        Observable.just(1, 2, 6, 2, 4, 3, 5, 9)
+                .first(-1)
+                .doOnSuccess(o -> {
+                    LogTools.loge("test34======" + o);
+                }).subscribe();
+    }
+
+    /**
+     * filter 的用法
+     * 等待可观察对象发出一个项，若有多个项，将直接进入error
+     */
+    public void test35() {
+        LogTools.loge("===test35===");
+        Observable.just(1)
+                .single(-1)
+                .subscribe((integer, throwable) -> {
+                    if (integer != null)
+                        LogTools.loge("test35======" + integer);
+                    if (throwable != null)
+                        LogTools.loge("test35======" + throwable);
+                });
+    }
+
+    /**
+     * ignoreElements 的用法
+     * 忽略可观察对象的所有发射项，只保留终止通知
+     */
+    public void test36() {
+        LogTools.loge("===test36===");
+        Observable.just(1, 2, 3, 4, 5)
+                .ignoreElements()
+                .doOnComplete(() -> {
+                    LogTools.loge("test36======complete");
+                })
+                .subscribe();
+    }
+
+    /**
+     * last 的用法
+     * 获取可观察对象发出的最后一项
+     */
+    public void test37() {
+        LogTools.loge("===test37===");
+        Observable.just(1, 2, 3, 4, 5)
+                .last(-1)
+                .doOnSuccess(integer -> {
+                    LogTools.loge("test37======" + integer);
+                })
+                .subscribe();
+    }
+
+    /**
+     * last 的用法
+     * 获取可观察对象发出的最后一项
+     */
+    public void test38() {
+        LogTools.loge("===test38===");
+        Observable.just(1, 2, 3, 4, 5)
+                .last(-1)
+                .doOnSuccess(integer -> {
+                    LogTools.loge("test38======" + integer);
+                })
+                .subscribe();
+    }
+
+    /**
+     * last 的用法
+     * 获取可观察对象发出的最后一项
+     */
+    public void test39() {
+        LogTools.loge("===test39===");
+        Observable.just(1, 2, 3, 4, 5)
+                .last(-1)
+                .doOnSuccess(integer -> {
+                    LogTools.loge("test39======" + integer);
+                })
+                .subscribe();
+    }
+
+    /**
+     * sample 的用法
+     * 获取可观察对象发出的最后一项
+     */
+    public void test40() {
+        LogTools.loge("===test40===");
+        Observable.just(1, 2, 3, 4, 5)
+                .sample(1000, TimeUnit.MILLISECONDS)
+                .doOnNext(integer -> {
+                    LogTools.loge("test40======" + integer);
+                })
+                .subscribe();
     }
 }

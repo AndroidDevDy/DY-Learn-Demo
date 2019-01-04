@@ -46,7 +46,11 @@ public class RxJavaExampleActivity extends AppCompatActivity {
 //        example1.test30();
 //        example1.test31();
 //        example1.test32();
-        example1.test33();
+//        example1.test33();
+//        example1.test34();
+//        example1.test35();
+//        example1.test36();
+        example1.test37();
 
 //        reflect_to_run_methods(example1);
     }
