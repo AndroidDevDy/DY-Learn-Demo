@@ -1,1 +1,1 @@
-include ':app', ':dyJavaLib', ':kotlinApp', ':dykotlinlib'
+include ':app', ':dyJavaLib', ':kotlinApp', ':dykotlinlib', ':test'
