@@ -8,11 +8,11 @@ public class testMain {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
-        List<Integer> list3 = new ArrayList<>();
+        int total = 200;
         int num = 0;
         int base = new Random().nextInt(250);
         int last = base;
-        while (num < 240) {
+        while (num < total) {
             int size = new Random().nextInt(10);
             int flag = new Random().nextInt(2) * 2 - 1;
             for (int i = 0; i < size; i++) {
@@ -24,11 +24,14 @@ public class testMain {
                 System.out.println(String.valueOf(last));
                 num++;
             }
+            list.add(null);
+            list.add(null);
+            list.add(null);
         }
         System.out.println("===================2");
         num = 0;
         last = base;
-        while (num < 240) {
+        while (num < list.size()) {
             int size = new Random().nextInt(10);
             int flag = new Random().nextInt(2) * 2 - 1;
             for (int i = 0; i < size; i++) {
@@ -42,14 +45,13 @@ public class testMain {
             }
         }
         System.out.println("===================3");
-        for (int i = 0; i < 240; i++) {
+        for (int i = 0; i < list.size(); i++) {
             int item = RandomMatchingO3(list.get(i), list2.get(i));
             System.out.println(String.valueOf(item));
         }
         System.out.println("===================4");
-        for (int i = 0; i < 240; i++) {
+        for (int i = 0; i < list.size(); i++) {
             int item = DeviceMatchTool.getInstance().matching(DeviceMatchTool.TYPE_O3, list.get(i), "ASD", list2.get(i));
-            list3.add(item);
             System.out.println(String.valueOf(item));
         }
     }

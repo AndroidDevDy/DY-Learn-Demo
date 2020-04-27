@@ -54,7 +54,7 @@ public class DeviceMatchTool {
         int offset = calcOffset(type, deviceId, flag, base, gValue, diff, 10);
         //低概率大偏移
         int i = new Random().nextInt(10);
-        if (i % 4 == 0) {
+        if (i % 6 == 0) {
             offset += new Random().nextInt(diff)+3;
         }
 
@@ -228,10 +228,10 @@ public class DeviceMatchTool {
         } else {
             switch (type) {
                 case TYPE_O3:
-                    lastValue = info.flag_o3;
+                    lastValue = info.last_value_o3;
                     break;
                 case TYPE_SO2:
-                    lastValue = info.flag_so2;
+                    lastValue = info.last_value_so2;
                     break;
                 default:
                     lastValue = -1;
